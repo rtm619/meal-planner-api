@@ -25,6 +25,6 @@ const db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
   app.listen(process.env.PORT, () =>
-    console.log(`app listening on port ${process.env.PORT}!`),
+    console.info(`app listening on port ${process.env.PORT}!`),
   );
 });

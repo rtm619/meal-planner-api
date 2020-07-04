@@ -9,6 +9,6 @@ module.exports = {
         "ecmaVersion": 11
     },
     "rules": {
-        "no-console": ["error", { allow: ["warn", "error"] }] 
+        "no-console": ["error", { allow: ["info", "error", "warn"] }] 
     }
 };
