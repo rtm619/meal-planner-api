@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const mealsSchema = new mongoose.Schema({
+const mealSchema = new mongoose.Schema({
   mealId: {
     type: String,
     required: true,
@@ -27,6 +27,6 @@ const mealsSchema = new mongoose.Schema({
   timestamps: true
 })
 
-const mealsModel = mongoose.model('Meals', mealsSchema)
+const mealModel = mongoose.model('Meal', mealSchema)
 
-module.exports = mealsModel
+module.exports = mealModel

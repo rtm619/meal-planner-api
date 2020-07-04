@@ -14,17 +14,14 @@ function initialize(app) {
     secretOrKey: process.env.SECRET_KEY,
   }
   passport.use(new JWTStrategy(opts, function (payload, cb) {
-    var key = payload.email;
-    console.log(payload);
+    const { email } = payload
     UserModel.findOne({ email: email }, (err, result) => {
       if (err) {
-        console.log(err);
+        console.error(err);
         return cb(err, false);
       } else if (!result) {
-        console.log(result);
         return cb(null, false);
       } else {
-        console.log(result);
         return cb(null, result);
       }
     })
@@ -33,12 +30,11 @@ function initialize(app) {
   passport.use(new LocalStrategy(function (username, password, cb) {
     UserModel.findOne({ email: username, password: password }, (err, user) => {
       if (err) {
-        console.log(err);
+        console.error(err);
         cb(err, false);
       } else if (!user) {
         cb(null, false);
       } else {
-        console.log("In Local Strategy", user);
         cb(null, user);
       }
     })

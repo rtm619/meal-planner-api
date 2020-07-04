@@ -20,8 +20,11 @@ app.use('/auth', authModule)
 app.use('/meals', mealsModule)
 
 // Connect to DB and then start the server.
-mongoose.connect(process.env.DB_URL).then(() => {
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+const db = mongoose.connection
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
   app.listen(process.env.PORT, () =>
-    console.log(`Example app listening on port ${process.env.PORT}!`),
+    console.log(`app listening on port ${process.env.PORT}!`),
   );
 });
