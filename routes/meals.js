@@ -25,8 +25,8 @@ router.post('/add', passport.authenticate('jwt', {
       data: dbRes
     })
   }).catch(err => {
-    res.status(400).json({
-      status: 400,
+    res.status(500).json({
+      status: 500,
       error: err
     })
   })
@@ -54,8 +54,8 @@ router.put('/update/:mealId', passport.authenticate('jwt', {
       data: dbRes
     })
   }).catch(err => {
-    res.status(400).json({
-      status: 400,
+    res.status(500).json({
+      status: 500,
       error: err
     })
   })
@@ -77,8 +77,8 @@ router.delete('/delete/:mealId', passport.authenticate('jwt', {
       data: dbRes
     })
   }).catch(err => {
-    res.status(400).json({
-      status: 400,
+    res.status(500).json({
+      status: 500,
       error: err
     })
   })
@@ -99,8 +99,8 @@ router.get('/get-all', passport.authenticate('jwt', {
       data: dbRes
     })
   }).catch(err => {
-    res.status(400).json({
-      status: 400,
+    res.status(500).json({
+      status: 500,
       error: err
     })
   })
