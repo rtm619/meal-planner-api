@@ -93,7 +93,7 @@ router.get('/get-all', passport.authenticate('jwt', {
       error: 'Invalid Token. User not authenticated.'
     })
   }
-  dbHelper.get(mealModel, {}).then(dbRes => {
+  dbHelper.get(mealModel, { userEmail: req.user.email }).then(dbRes => {
     res.status(200).json({
       status: 200,
       data: dbRes
